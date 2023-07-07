@@ -1,0 +1,8 @@
+#!/bin/bash
+service supervisor start
+
+usermod -u $(stat -c '%u' /app) www-data
+chown -R www-data /var/www/
+
+/etc/init.d/php8.2-fpm start
+tail -f /var/log/php8.2-fpm.log
