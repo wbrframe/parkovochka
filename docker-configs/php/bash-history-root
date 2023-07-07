@@ -1,0 +1,5 @@
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+HISTFILE=/root/history/.bash_history
+eval "$(/app/bin/console completion)"
+[ -f /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
