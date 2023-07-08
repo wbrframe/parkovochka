@@ -9,13 +9,17 @@
         "php": ">=8.2.6",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "doctrine/doctrine-bundle": "^2.10",
         "doctrine/doctrine-fixtures-bundle": "*",
+        "doctrine/doctrine-migrations-bundle": "^3.2",
+        "doctrine/orm": "^2.15",
+        "symfony/asset": "6.3.*",
         "symfony/console": "6.3.*",
         "symfony/dotenv": "6.3.*",
         "symfony/flex": "^2",
         "symfony/framework-bundle": "6.3.*",
-        "symfony/orm-pack": "*",
-        "symfony/runtime": "6.3.*",
+        "symfony/runtime": "^6.3",
+        "symfony/twig-bundle": "6.3.*",
         "symfony/yaml": "6.3.*"
     },
     "config": {
@@ -57,7 +61,6 @@
             "@auto-scripts"
         ],
         "app:recreate-database": [
-            "@app:clear-doctrine-cache",
             "bin/console doctrine:database:create --if-not-exists",
             "bin/console doctrine:query:sql \"DROP SCHEMA public CASCADE; CREATE SCHEMA public;\"",
             "bin/console doctrine:migrations:migrate --no-interaction --allow-no-migration",
