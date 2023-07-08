@@ -1,0 +1,14 @@
+parameters:
+    level: 9
+    paths:
+        - bin/
+        - config/
+        - public/
+        - src/
+        - tests/
+    excludePaths:
+        - '%rootDir%/../../../src/DataFixtures/*'
+    fileExtensions:
+        - 'php'
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false

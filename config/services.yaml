@@ -14,7 +14,7 @@ services:
         autoconfigure: true
 
     App\:
-        resource: '../src/{Repository,Service}/'
+        resource: '../src/{EventListener,Repository,Serializer,Service,Traits,Util,Validator}/'
 
     App\Controller\:
         resource: '../src/Controller/'
@@ -22,3 +22,6 @@ services:
 
     App\DataFixtures\ORM\:
         resource: '../src/DataFixtures/ORM/'
+
+    Symfony\Component\Serializer\Normalizer\DateTimeNormalizer: '@serializer.normalizer.datetime'
+    Symfony\Component\Serializer\Serializer: '@serializer'
