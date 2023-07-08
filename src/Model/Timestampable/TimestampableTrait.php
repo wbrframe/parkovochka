@@ -42,7 +42,7 @@ trait TimestampableTrait
 
     public function initTimestampableFields(): void
     {
-        $this->createdAt = new \DateTimeImmutable('now');
-        $this->updatedAt = new \DateTime('now');
+        $this->createdAt = new \DateTimeImmutable('now', new \DateTimeZone('UTC'));
+        $this->updatedAt = new \DateTime('now', new \DateTimeZone('UTC'));
     }
 }

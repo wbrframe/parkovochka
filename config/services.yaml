@@ -23,5 +23,10 @@ services:
     App\DataFixtures\ORM\:
         resource: '../src/DataFixtures/ORM/'
 
+    App\EventListener\ORM\DateTime\DateTimeInUTCListener:
+        class: App\EventListener\ORM\DateTime\DateTimeInUTCListener
+        tags:
+            - { name: doctrine.event_listener, event: preFlush }
+
     Symfony\Component\Serializer\Normalizer\DateTimeNormalizer: '@serializer.normalizer.datetime'
     Symfony\Component\Serializer\Serializer: '@serializer'

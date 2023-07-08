@@ -11,11 +11,14 @@ use App\Model\Timestampable\TimestampableTrait;
 use App\Model\UUID\UuidInterface;
 use App\Model\UUID\UuidTrait;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Uid\UuidV4;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'parkings')]
+#[ORM\UniqueConstraint(columns: ['google_place_id'])]
+#[UniqueEntity(fields: 'googlePlaceId')]
 class Parking implements UuidInterface, TimestampableInterface, PlaceInterface
 {
     use TimestampableTrait;
