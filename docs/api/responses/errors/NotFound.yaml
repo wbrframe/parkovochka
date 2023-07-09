@@ -1,0 +1,6 @@
+NotFound:
+  description: "Not Found"
+  content:
+    application/json:
+      schema:
+        $ref: '#/components/schemas/ResourceNotFound'

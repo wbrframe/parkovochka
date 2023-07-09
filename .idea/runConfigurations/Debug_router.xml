@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Debug router" type="PhpLocalRunConfigurationType" factoryName="PHP Console" folderName="Symfony" path="bin/console" scriptParameters="debug:router">
+    <CommandLine workingDirectory="$PROJECT_DIR$" />
+    <method v="2" />
+  </configuration>
+</component>

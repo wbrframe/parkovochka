@@ -1,0 +1,14 @@
+InternalServerError:
+  type: object
+  required:
+    - error
+    - errorDescription
+  properties:
+    error:
+      type: string
+      enum:
+        - internal_server_error
+      description: "Error type"
+      example: 'internal_server_error'
+    errorDescription:
+      $ref: '#/components/schemas/ErrorDescription'

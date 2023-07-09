@@ -1,0 +1,14 @@
+AccessDenied:
+  type: object
+  required:
+    - error
+    - errorDescription
+  properties:
+    error:
+      type: string
+      enum:
+        - access_denied
+      description: "Error type"
+      example: 'access_denied'
+    errorDescription:
+      $ref: '#/components/schemas/ErrorDescription'

@@ -109,6 +109,9 @@
             "phpcs.xml.dist"
         ]
     },
+    "stfalcon-studio/swagger-bundle": {
+        "version": "v0.14.1"
+    },
     "symfony/console": {
         "version": "6.3",
         "recipe": {

@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Generate and open API Docs" type="JavascriptDebugType" uri="http://localhost:8000/api/index.html">
+    <method v="2">
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Generate API Docs" run_configuration_type="PhpLocalRunConfigurationType" />
+    </method>
+  </configuration>
+</component>

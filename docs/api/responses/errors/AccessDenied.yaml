@@ -1,0 +1,6 @@
+AccessDenied:
+  description: "AccessDenied"
+  content:
+    application/json:
+      schema:
+        $ref: '#/components/schemas/AccessDenied'

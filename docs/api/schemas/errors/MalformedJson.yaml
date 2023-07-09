@@ -1,0 +1,14 @@
+MalformedJson:
+  type: object
+  required:
+    - error
+    - errorDescription
+  properties:
+    error:
+      type: string
+      enum:
+        - malformed_json
+      description: "Error type"
+      example: 'malformed_json'
+    errorDescription:
+      $ref: '#/components/schemas/ErrorDescription'

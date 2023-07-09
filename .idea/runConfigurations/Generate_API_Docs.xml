@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Generate API Docs" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="bin/console" scriptParameters="swagger:generate-docs">
+    <CommandLine workingDirectory="$PROJECT_DIR$" />
+    <method v="2" />
+  </configuration>
+</component>

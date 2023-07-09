@@ -1,0 +1,12 @@
+CoordinateField:
+  type: object
+  required:
+    - latitude
+    - longitude
+  properties:
+    latitude:
+      type: float
+      example: 12.34
+    longitude:
+      type: float
+      example: 12.34

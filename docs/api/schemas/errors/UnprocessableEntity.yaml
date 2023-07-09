@@ -1,0 +1,57 @@
+UnprocessableEntity:
+  type: object
+  required:
+    - error
+    - errorDescription
+    - violations
+  properties:
+    error:
+      type: string
+      enum:
+        - invalid_entity
+      description: "Error type"
+      example: 'invalid_entity'
+    errorDescription:
+      $ref: '#/components/schemas/ErrorDescription'
+    violations:
+      type: object
+      required:
+        - type
+        - title
+        - detail
+        - violations
+      properties:
+        type:
+          type: string
+          description: "Just informative field to describe standard for errors"
+          example: 'https://symfony.com/errors/validation'
+        title:
+          type: string
+          description: "Title for validation response"
+          example: 'Validation Failed'
+        detail:
+          type: string
+          description: "Concatenated errors in one string"
+          example: 'object.field: This value is too short. It should have 2 characters or more.'
+        violations:
+          type: array
+          description: "Array of all violations for the current json object from request"
+          items:
+            type: object
+            required:
+              - propertyPath
+              - title
+              - type
+            properties:
+              propertyPath:
+                type: string
+                description: "Path to the field of the json object from request"
+                example: 'object.field'
+              title:
+                type: string
+                description: "Validation error that can be show for user"
+                example: 'This value is too short. It should have 2 characters or more.'
+              type:
+                type: string
+                description: "Unique identifier for specific type of validation error"
+                example: 'urn:uuid:778b7ae0-84d3-481a-9dec-35fdb64b1d78'

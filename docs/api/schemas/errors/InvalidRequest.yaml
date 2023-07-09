@@ -1,0 +1,14 @@
+InvalidRequest:
+  type: object
+  required:
+    - error
+    - errorDescription
+  properties:
+    error:
+      type: string
+      enum:
+        - invalid_request
+      description: "Error type"
+      example: 'invalid_request'
+    errorDescription:
+      $ref: '#/components/schemas/ErrorDescription'
