@@ -14,7 +14,7 @@ services:
         autoconfigure: true
 
     App\:
-        resource: '../src/{EventListener,Repository,Serializer,Service,Traits,Util,Validator}/'
+        resource: '../src/{EventListener,Repository,Request,Serializer,Service,Traits,Util,Validator}/'
 
     App\Controller\:
         resource: '../src/Controller/'

@@ -1,0 +1,22 @@
+{
+    "id": "../src/Json/Schema/Geo/Coordinate.json",
+    "schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "latitude": {
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90
+        },
+        "longitude": {
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180
+        }
+    },
+    "required": [
+        "latitude",
+        "longitude"
+    ]
+}

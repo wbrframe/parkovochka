@@ -1,0 +1,25 @@
+{
+    "id": "../src/Json/Schema/Parking/NewParking.json",
+    "schema": "http://json-schema.org/draft-07/schema#",
+    "title": "NewParking",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "address": {
+            "type": "string",
+            "maxLength": 500
+        },
+        "googlePlaceId": {
+            "type": ["string", "null"],
+            "maxLength": 1000
+        },
+        "coordinate": {
+            "$ref": "./../definitions.json#/definitions/coordinate"
+        }
+    },
+    "required": [
+        "address",
+        "googlePlaceId",
+        "coordinate"
+    ]
+}
