@@ -1,0 +1,7 @@
+HeaderAcceptLanguage:
+  in: header
+  name: Accept-Language
+  required: true
+  schema:
+    type: string
+    example: 'uk'

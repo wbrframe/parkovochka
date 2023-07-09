@@ -1,0 +1,14 @@
+InvalidRefreshToken:
+  type: object
+  required:
+    - error
+    - errorDescription
+  properties:
+    error:
+      type: string
+      enum:
+        - invalid_refresh_token
+      description: "Error type"
+      example: 'invalid_refresh_token'
+    errorDescription:
+      $ref: '#/components/schemas/ErrorDescription'

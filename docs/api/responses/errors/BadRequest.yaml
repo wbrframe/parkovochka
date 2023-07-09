@@ -1,0 +1,9 @@
+BadRequest:
+  description: "Bad Request"
+  content:
+    application/json:
+      schema:
+        oneOf:
+          - $ref: '#/components/schemas/InvalidRequest'
+          - $ref: '#/components/schemas/MalformedJson'
+          - $ref: '#/components/schemas/InvalidJsonSchema'

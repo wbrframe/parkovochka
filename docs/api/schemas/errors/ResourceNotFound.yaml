@@ -1,0 +1,14 @@
+ResourceNotFound:
+  type: object
+  required:
+    - error
+    - errorDescription
+  properties:
+    error:
+      type: string
+      enum:
+        - resource_not_found
+      description: "Error type"
+      example: 'resource_not_found'
+    errorDescription:
+      $ref: '#/components/schemas/ErrorDescription'

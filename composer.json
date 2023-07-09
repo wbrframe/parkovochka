@@ -18,6 +18,7 @@
         "jsor/doctrine-postgis": "^2.2",
         "phpdocumentor/reflection-docblock": "^5.3",
         "phpstan/phpdoc-parser": "^1.22",
+        "stfalcon-studio/swagger-bundle": "^0.14.1",
         "symfony/asset": "6.3.*",
         "symfony/console": "6.3.*",
         "symfony/dotenv": "6.3.*",
@@ -76,9 +77,22 @@
         "post-update-cmd": [
             "@auto-scripts"
         ],
+        "ci:pack": [
+            "@ci:composer-validate",
+            "@ci:security-check",
+            "@ci:doctrine-schema-validate",
+            "@ci:yaml-lint",
+            "@ci:code-style",
+            "@ci:static-analysis",
+            "@ci:phpunit"
+        ],
         "ci:composer-validate": "@composer validate --no-check-all --strict",
         "ci:security-check": "/usr/local/bin/security-checker --path=composer.lock",
         "ci:doctrine-schema-validate": "bin/console doctrine:schema:validate",
+        "ci:doctrine-migrations-diff": "bin/console doctrine:migrations:diff",
+        "ci:doctrine-migrations-migrate": "bin/console doctrine:migrations:migrate -n",
+        "ci:doctrine-migrations-generate": "bin/console doctrine:migrations:generate",
+        "ci:doctrine-fixtures-load": "bin/console doctrine:fixtures:load -n",
         "ci:twig-lint": "bin/console lint:twig templates/",
         "ci:yaml-lint": [
             "bin/console lint:yaml --parse-tags config/",

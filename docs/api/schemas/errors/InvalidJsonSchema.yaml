@@ -1,0 +1,27 @@
+InvalidJsonSchema:
+  type: object
+  required:
+    - error
+    - errorDescription
+    - violations
+    - jsonSchema
+  properties:
+    error:
+      type: string
+      enum:
+        - invalid_json_schema
+      description: "Error type"
+      example: 'invalid_json_schema'
+    errorDescription:
+      $ref: '#/components/schemas/ErrorDescription'
+    violations:
+      type: object
+      properties:
+        minLength:
+          type: object
+          properties:
+            title:
+              type: object
+              example: "Must be at least 5 characters long"
+    jsonSchema:
+      type: object

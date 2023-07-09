@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83625ec88688adedc7206d6954bdd699",
+    "content-hash": "705500ef9ec53c9b43b5d0fa84fa26d5",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2453,6 +2453,70 @@
                 "source": "https://github.com/php-fig/log/tree/3.0.0"
             },
             "time": "2021-07-14T16:46:02+00:00"
+        },
+        {
+            "name": "stfalcon-studio/swagger-bundle",
+            "version": "v0.14.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stfalcon-studio/SwaggerBundle.git",
+                "reference": "19d0c91d22cd958209cf71a6e5985f0de070a950"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stfalcon-studio/SwaggerBundle/zipball/19d0c91d22cd958209cf71a6e5985f0de070a950",
+                "reference": "19d0c91d22cd958209cf71a6e5985f0de070a950",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-iconv": "*",
+                "php": ">=8.1",
+                "symfony/asset": "^6.1",
+                "symfony/console": "^6.1",
+                "symfony/finder": "^6.1",
+                "symfony/flex": "^v2.2",
+                "symfony/framework-bundle": "^6.1",
+                "symfony/polyfill-ctype": "^1.26",
+                "symfony/twig-bundle": "^6.1",
+                "symfony/yaml": "^6.1",
+                "twig/twig": "^3.4"
+            },
+            "require-dev": {
+                "escapestudios/symfony2-coding-standard": "^3.12",
+                "phpstan/phpstan": "^1.8.2",
+                "phpstan/phpstan-doctrine": "^1.3",
+                "phpstan/phpstan-phpunit": "^1.1",
+                "phpstan/phpstan-symfony": "^1.2",
+                "phpunit/phpunit": "^9.5",
+                "symfony/dotenv": "^6.1",
+                "symfony/filesystem": "^6.1",
+                "symfony/phpunit-bridge": "^6.1",
+                "thecodingmachine/phpstan-strict-rules": "^1.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "StfalconStudio\\SwaggerBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Generate Swagger UI documentation from local files",
+            "homepage": "https://github.com/stfalcon-studio/swagger-bundle",
+            "keywords": [
+                "bundle",
+                "openapi",
+                "swagger",
+                "symfony"
+            ],
+            "support": {
+                "issues": "https://github.com/stfalcon-studio/swagger-bundle/issues",
+                "source": "https://github.com/stfalcon-studio/SwaggerBundle/tree/v0.14.1"
+            },
+            "time": "2022-09-06T09:11:12+00:00"
         },
         {
             "name": "symfony/asset",

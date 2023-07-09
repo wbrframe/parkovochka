@@ -1,0 +1,2 @@
+swagger:
+    config_folder: '%kernel.project_dir%/docs/api/'

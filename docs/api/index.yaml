@@ -1,0 +1,23 @@
+openapi: 3.0.3
+
+info:
+  title: Parkovochka API Documentation
+  version: 1.0.0
+
+servers:
+  - url: 'https://www.parkovochka.space/api/v1.0'
+    description: Production
+
+tags:
+  - name: Parking
+
+paths:
+  "$paths"
+
+components:
+  schemas:
+    "$schemas"
+  responses:
+    "$responses"
+  parameters:
+    "$parameters"

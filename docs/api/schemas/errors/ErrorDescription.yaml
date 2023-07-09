@@ -1,0 +1,4 @@
+ErrorDescription:
+  type: string
+  description: "Error description that can be shown for user"
+  example: "Error description"
