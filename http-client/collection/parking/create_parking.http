@@ -1,0 +1,18 @@
+POST {{api_scheme}}{{api_host}}/api/{{api_version}}/parkings
+Accept-Language: {{default_language}}
+Content-Type: application/json
+
+{
+    "address": "ул. Собранецкая, 89, Ужгород, Закарпатская область, 88000",
+    "googlePlaceId": "0ahUKEwiE9te9uoCAAxUhuaQKHRdEAf4Q8BcIAigA",
+    "coordinate": {
+      "longitude": 48.633009,
+      "latitude": 22.279601
+    }
+}
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
