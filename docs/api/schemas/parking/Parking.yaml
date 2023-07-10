@@ -9,13 +9,14 @@ Parking:
       $ref: '#/components/schemas/UuidField'
     address:
       type: string
-      nullable: true
       example: 'Zarichanska str.'
+      minLength: 1
       maxLength: 500
     googlePlaceId:
       type: string
       nullable: true
       example: 'ChIJXZsJUqoHMkcRxLeAW1PoO3M'
+      minLength: 1
       maxLength: 1000
     coordinate:
       $ref: '#/components/schemas/CoordinateField'
