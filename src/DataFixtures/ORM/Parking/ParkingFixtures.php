@@ -92,6 +92,14 @@ class ParkingFixtures extends Fixture
             'address' => 'площадь Кирилла и Мефодия, Ужгород, Закарпатская область, 88000',
             'googlePlaceId' => '0ahUKEwiXwvnvm4CAAxU7wQIHHTdUAZ4Q8BcIAigA',
         ],
+        [
+            'coordinate' => [
+                'latitude' => 48.621166,
+                'longitude' => 22.287732,
+            ],
+            'address' => 'площадь Кирилла и Мефодия, Ужгород, Закарпатская область, 88000',
+            'googlePlaceId' => null,
+        ],
     ];
 
     public function load(ObjectManager $manager): void
@@ -99,7 +107,10 @@ class ParkingFixtures extends Fixture
         foreach ($this->parkingItems as $item) {
             $coordinate = new Coordinate($item['coordinate']['longitude'], $item['coordinate']['latitude']);
 
-            $parking = new Parking($coordinate, $item['address'], $item['googlePlaceId']);
+            $parking = new Parking();
+            $parking->setCoordinate($coordinate);
+            $parking->setAddress($item['address']);
+            $parking->setGooglePlaceId($item['googlePlaceId']);
             $manager->persist($parking);
         }
 

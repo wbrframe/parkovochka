@@ -18,7 +18,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity]
 #[ORM\Table(name: 'parkings')]
 #[ORM\UniqueConstraint(columns: ['google_place_id'])]
-#[UniqueEntity(fields: 'googlePlaceId')]
+#[UniqueEntity(fields: 'googlePlaceId', ignoreNull: true)]
 class Parking implements UuidInterface, TimestampableInterface, PlaceInterface
 {
     use TimestampableTrait;
@@ -35,22 +35,19 @@ class Parking implements UuidInterface, TimestampableInterface, PlaceInterface
     ])]
     private string $address;
 
-    #[ORM\Column(type: 'string', length: 1000)]
+    #[ORM\Column(type: 'string', length: 1000, nullable: true)]
     #[Assert\Sequentially([
         new Assert\Length(min: 1, max: 1000),
     ])]
-    private string $googlePlaceId;
+    private ?string $googlePlaceId = null;
 
     #[ORM\Column(type: 'geometry', options: ['geometry_type' => 'POINT'])]
     #[Assert\Valid]
     private Coordinate $coordinate;
 
-    public function __construct(Coordinate $coordinate, string $address, string $googlePlaceId)
+    public function __construct()
     {
         $this->id = new UuidV4();
-        $this->address = $address;
-        $this->googlePlaceId = $googlePlaceId;
-        $this->coordinate = $coordinate;
         $this->initTimestampableFields();
     }
 
@@ -64,12 +61,12 @@ class Parking implements UuidInterface, TimestampableInterface, PlaceInterface
         $this->address = $address;
     }
 
-    public function getGooglePlaceId(): string
+    public function getGooglePlaceId(): ?string
     {
         return $this->googlePlaceId;
     }
 
-    public function setGooglePlaceId(string $googlePlaceId): void
+    public function setGooglePlaceId(?string $googlePlaceId): void
     {
         $this->googlePlaceId = $googlePlaceId;
     }
