@@ -5,6 +5,8 @@ parameters:
         - 'uk'
     api_host: '%env(APP_API_HOST)%'
     api_scheme: '%env(APP_API_SCHEME)%'
+    admin_host: '%env(APP_ADMIN_HOST)%'
+    admin_scheme: '%env(APP_ADMIN_SCHEME)%'
     landing_host: '%env(APP_LANDING_HOST)%'
     landing_scheme: '%env(APP_LANDING_SCHEME)%'
 

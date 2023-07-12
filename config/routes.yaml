@@ -1,3 +1,9 @@
+admin:
+    resource: ../src/Controller/Admin
+    type: attribute
+    host: "%admin_host%"
+    schemes: "%admin_scheme%"
+
 landing:
     resource: ../src/Controller/Landing
     type: attribute
