@@ -1,12 +1,8 @@
-Parking:
+CreateParking:
   required:
-    - id
     - address
-    - googlePlaceId
     - coordinate
   properties:
-    id:
-      $ref: '#/components/schemas/UuidField'
     address:
       type: string
       example: 'Zarichanska str.'

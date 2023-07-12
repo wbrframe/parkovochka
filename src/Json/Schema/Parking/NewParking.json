@@ -7,10 +7,12 @@
     "properties": {
         "address": {
             "type": "string",
+            "minLength": 1,
             "maxLength": 500
         },
         "googlePlaceId": {
             "type": ["string", "null"],
+            "minLength": 1,
             "maxLength": 1000
         },
         "coordinate": {
