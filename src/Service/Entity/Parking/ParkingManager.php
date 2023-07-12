@@ -18,6 +18,11 @@ readonly class ParkingManager
     {
         $coordinate = $this->coordinateManager->createEntityFromDto($dto->getCoordinate());
 
-        return new Parking($coordinate, $dto->getAddress(), $dto->getGooglePlaceId());
+        $entity = new Parking();
+        $entity->setCoordinate($coordinate);
+        $entity->setAddress($dto->getAddress());
+        $entity->setGooglePlaceId($dto->getGooglePlaceId());
+
+        return $entity;
     }
 }

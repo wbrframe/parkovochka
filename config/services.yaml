@@ -30,3 +30,4 @@ services:
 
     Symfony\Component\Serializer\Normalizer\DateTimeNormalizer: '@serializer.normalizer.datetime'
     Symfony\Component\Serializer\Serializer: '@serializer'
+    Doctrine\ORM\EntityManager: '@doctrine.orm.entity_manager'

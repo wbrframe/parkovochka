@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\Serializer\Normalizer;
 
-use App\Exception\DomainException;
-use App\Model\Timestampable\TimestampableInterface;
-use App\Model\UUID\UuidInterface;
+use Fresh\DateTime\DateTimeHelper;
+use StfalconStudio\ApiBundle\Exception\DomainException;
+use StfalconStudio\ApiBundle\Model\Timestampable\TimestampableInterface;
+use StfalconStudio\ApiBundle\Model\UUID\UuidInterface;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Contracts\Service\Attribute\Required;
@@ -16,11 +17,18 @@ abstract class AbstractBaseNormalizer implements NormalizerInterface
     protected const DEFAULT_FORMAT = 'json';
 
     protected DateTimeNormalizer $dateTimeNormalizer;
+    protected DateTimeHelper $dateTimeHelper;
 
     #[Required]
     public function setDateTimeNormalizer(DateTimeNormalizer $dateTimeNormalizer): void
     {
         $this->dateTimeNormalizer = $dateTimeNormalizer;
+    }
+
+    #[Required]
+    public function setDateTimeHelper(DateTimeHelper $dateTimeHelper): void
+    {
+        $this->dateTimeHelper = $dateTimeHelper;
     }
 
     protected function normalizeUuid(UuidInterface $entity, array &$data, string $key = null): void
@@ -40,7 +48,7 @@ abstract class AbstractBaseNormalizer implements NormalizerInterface
 
     protected function includeServerCurrentTime(array &$data): void
     {
-        $data['serverCurrentTime'] = $this->dateTimeNormalizer->normalize(new \DateTimeImmutable('now', new \DateTimeZone('UTC')));
+        $data['serverCurrentTime'] = $this->dateTimeNormalizer->normalize($this->dateTimeHelper->getCurrentDatetimeImmutableUtc());
     }
 
     protected function getSerializationGroupFromContext(array $context): string

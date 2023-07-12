@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Model\Geo;
 
-use App\Exception\UnexpectedValueException;
 use App\Validator\Constraints as AppAssert;
 use CrEOF\Spatial\PHP\Types\Geography\Point;
+use StfalconStudio\ApiBundle\Exception\UnexpectedValueException;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class Coordinate extends Point implements CoordinateInterface

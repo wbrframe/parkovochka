@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Controller\API\V10\Parking;
 
-use App\Attribute\DTO;
-use App\Controller\AbstractDtoBasedAction;
 use App\DTO\Parking\NewParkingDto;
 use App\Service\Entity\Parking\ParkingManager;
-use App\Traits\EntityManagerTrait;
-use App\Traits\SerializerTrait;
+use StfalconStudio\ApiBundle\Attribute\DTO;
+use StfalconStudio\ApiBundle\Controller\AbstractDtoBasedAction;
+use StfalconStudio\ApiBundle\Traits\EntityManagerTrait;
+use StfalconStudio\ApiBundle\Traits\SerializerTrait;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\DTO\Parking;
 
-use App\DTO\DtoInterface;
 use App\DTO\Geo\CoordinateDto;
 use App\Model\Geo\PlaceInterface;
+use StfalconStudio\ApiBundle\Attribute\JsonSchema;
+use StfalconStudio\ApiBundle\DTO\DtoInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
+#[JsonSchema(jsonSchemaName: 'Parking/NewParking')]
 class NewParkingDto implements DtoInterface, PlaceInterface
 {
     #[Assert\Sequentially([
