@@ -21,15 +21,4 @@ class CoordinateManager
             ->setLongitude($coordinate->getLongitude())
         ;
     }
-
-    public function updateEntityFromDto(Coordinate $coordinate, CoordinateDto $coordinateDto): Coordinate
-    {
-        $newCoordinate = new Coordinate($coordinateDto->getLongitude(), $coordinateDto->getLatitude());
-
-        if (!$newCoordinate->isEqual($coordinate)) {
-            return $newCoordinate;
-        }
-
-        return $coordinate;
-    }
 }

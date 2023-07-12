@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\DTO\Geo;
 
-use App\Attribute\JsonSchema;
-use App\DTO\DtoInterface;
 use App\Model\Geo\CoordinateInterface;
+use StfalconStudio\ApiBundle\Attribute\JsonSchema;
+use StfalconStudio\ApiBundle\DTO\DtoInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[JsonSchema('Geo/Coordinate')]

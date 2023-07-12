@@ -1,0 +1,4 @@
+stfalcon_api:
+    api_host: '%env(APP_API_HOST)%'
+    jwt:
+        enabled: false

@@ -16,7 +16,7 @@
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/Parking'
+                $ref: '#/components/schemas/ViewParking'
       '400':
         $ref: '#/components/responses/BadRequest'
       '500':

@@ -6,7 +6,7 @@ namespace App\Controller\API\V10\Parking;
 
 use App\Repository\Parking\ParkingRepository;
 use App\Serializer\Groups\SerializationGroups;
-use App\Traits\SerializerTrait;
+use StfalconStudio\ApiBundle\Traits\SerializerTrait;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;

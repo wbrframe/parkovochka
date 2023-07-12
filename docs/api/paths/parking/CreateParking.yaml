@@ -1,0 +1,27 @@
+'/parkings':
+  post:
+    parameters:
+      - $ref: '#/components/parameters/HeaderAcceptLanguage'
+      - $ref: '#/components/parameters/HeaderContentType'
+    tags:
+      - Parking
+    operationId: CreateParking
+    summary: "Create parking"
+    description: "Parking should be unique by field `googlePlaceId`"
+    security:
+      - BearerAuth: [anonymous]
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateParking'
+    responses:
+      '204':
+        description: No Content
+      '400':
+        $ref: '#/components/responses/BadRequest'
+      '422':
+        $ref: '#/components/responses/UnprocessableEntity'
+      '500':
+        $ref: '#/components/responses/InternalServerError'

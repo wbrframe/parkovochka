@@ -14,7 +14,7 @@ services:
         autoconfigure: true
 
     App\:
-        resource: '../src/{EventListener,Repository,Serializer,Service,Traits,Util,Validator}/'
+        resource: '../src/{EventListener,Repository,Request,Serializer,Service,Traits,Util,Validator}/'
 
     App\Controller\:
         resource: '../src/Controller/'
@@ -30,3 +30,4 @@ services:
 
     Symfony\Component\Serializer\Normalizer\DateTimeNormalizer: '@serializer.normalizer.datetime'
     Symfony\Component\Serializer\Serializer: '@serializer'
+    Doctrine\ORM\EntityManager: '@doctrine.orm.entity_manager'
