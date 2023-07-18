@@ -9,9 +9,6 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class CoordinateNormalizer implements NormalizerInterface
 {
-    /**
-     * {@inheritdoc}
-     */
     public function supportsNormalization($data, string $format = null): bool
     {
         return $data instanceof CoordinateInterface;
@@ -19,10 +16,6 @@ class CoordinateNormalizer implements NormalizerInterface
 
     /**
      * @param CoordinateInterface $object
-     * @param string|null         $format
-     * @param array               $context
-     *
-     * @return array
      */
     public function normalize(mixed $object, string $format = null, array $context = []): array
     {

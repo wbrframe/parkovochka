@@ -2,6 +2,12 @@ CreateParking:
   required:
     - address
     - coordinate
+    - capacity
+    - security
+    - light
+    - traffic
+    - weatherProtection
+    - userRating
   properties:
     address:
       type: string
@@ -16,3 +22,23 @@ CreateParking:
       maxLength: 1000
     coordinate:
       $ref: '#/components/schemas/CoordinateField'
+    capacity:
+      $ref: '#/components/schemas/ParkingCapacityField'
+    security:
+      type: boolean
+      example: false
+    light:
+      type: boolean
+      example: true
+    traffic:
+      $ref: '#/components/schemas/ParkingTrafficField'
+    weatherProtection:
+      type: boolean
+      example: false
+    userRating:
+      $ref: '#/components/schemas/ParkingUserRatingField'
+    description:
+      type: string
+      nullable: true
+      minLength: 1
+      maxLength: 500

@@ -10,9 +10,6 @@ use Symfony\Component\Validator\Constraints\RangeValidator;
 
 class ValidLongitudeValidator extends RangeValidator
 {
-    /**
-     * {@inheritdoc}
-     */
     public function validate(mixed $value, Constraint $constraint): void
     {
         if (!$constraint instanceof ValidLongitude) {

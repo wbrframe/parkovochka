@@ -16,9 +16,6 @@ class Coordinate extends Point implements CoordinateInterface
         parent::__construct($longitude, $latitude, $spatialReferenceId);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function __toString(): string
     {
         return sprintf(
@@ -51,9 +48,6 @@ class Coordinate extends Point implements CoordinateInterface
         return $this->getY();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getAsPoint(bool $shortKeys = false): array
     {
         if ($shortKeys) {
@@ -70,9 +64,6 @@ class Coordinate extends Point implements CoordinateInterface
         ];
     }
 
-    /**
-     * @return string
-     */
     public function getAsString(): string
     {
         return implode(

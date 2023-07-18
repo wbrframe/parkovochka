@@ -29,6 +29,22 @@
                 "longitude",
                 "latitude"
             ]
+        },
+        "parkingCapacity": {
+            "type": "string",
+            "enum": [
+                "value_1",
+                "value_6",
+                "value_10"
+            ]
+        },
+        "parkingTraffic": {
+            "type": "string",
+            "enum": [
+                "low",
+                "medium",
+                "large"
+            ]
         }
     }
 }

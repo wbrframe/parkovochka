@@ -14,9 +14,6 @@ class GeometryType extends BaseGeometryType
 {
     /**
      * @param array<int, string>|null $value
-     * @param AbstractPlatform        $platform
-     *
-     * @return Coordinate|null
      */
     public function convertToPHPValue($value, AbstractPlatform $platform): ?Coordinate
     {

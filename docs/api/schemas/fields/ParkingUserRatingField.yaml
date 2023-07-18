@@ -1,0 +1,5 @@
+ParkingUserRatingField:
+  type: integer
+  minimum: 0
+  maximum: 10
+  example: 7

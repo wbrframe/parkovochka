@@ -15,6 +15,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.15",
         "easycorp/easyadmin-bundle": "^4.7",
+        "fakerphp/faker": "^1.23",
         "gedmo/doctrine-extensions": "^3.11",
         "gesdinet/jwt-refresh-token-bundle": "^1.1",
         "jsor/doctrine-postgis": "^2.2",
@@ -135,7 +136,6 @@
     },
     "require-dev": {
         "escapestudios/symfony2-coding-standard": "^3.13",
-        "fakerphp/faker": "^1.23",
         "friendsofphp/php-cs-fixer": "^3.21",
         "jetbrains/phpstorm-attributes": "^1.0",
         "phpstan/phpstan": "^1.10",

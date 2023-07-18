@@ -1,0 +1,7 @@
+ParkingCapacityField:
+  type: string
+  example: "value_1"
+  enum:
+    - "value_1"
+    - "value_6"
+    - "value_10"
