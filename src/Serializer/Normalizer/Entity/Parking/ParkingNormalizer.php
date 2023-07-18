@@ -21,11 +21,7 @@ class ParkingNormalizer extends AbstractBaseNormalizer
     }
 
     /**
-     * @param Parking     $object
-     * @param string|null $format
-     * @param array       $context
-     *
-     * @return array
+     * @param Parking $object
      */
     public function normalize(mixed $object, string $format = null, array $context = []): array
     {
@@ -39,6 +35,13 @@ class ParkingNormalizer extends AbstractBaseNormalizer
                 $this->normalizeAddress($object, $data);
                 $this->normalizeGooglePlaceId($object, $data);
                 $this->normalizeCoordinate($object, $data);
+                $this->normalizeCapacity($object, $data);
+                $this->normalizeSecurity($object, $data);
+                $this->normalizeLight($object, $data);
+                $this->normalizeTraffic($object, $data);
+                $this->normalizeWeatherProtection($object, $data);
+                $this->normalizeUserRating($object, $data);
+                $this->normalizeDescription($object, $data);
                 break;
         }
 
@@ -63,5 +66,40 @@ class ParkingNormalizer extends AbstractBaseNormalizer
     private function normalizeCoordinate(Parking $entity, array &$data): void
     {
         $data['coordinate'] = $this->coordinateNormalizer->normalize($entity->getCoordinate());
+    }
+
+    private function normalizeCapacity(Parking $entity, array &$data): void
+    {
+        $data['capacity'] = $entity->getCapacity();
+    }
+
+    private function normalizeSecurity(Parking $entity, array &$data): void
+    {
+        $data['security'] = $entity->isSecurity();
+    }
+
+    private function normalizeLight(Parking $entity, array &$data): void
+    {
+        $data['light'] = $entity->isLight();
+    }
+
+    private function normalizeTraffic(Parking $entity, array &$data): void
+    {
+        $data['traffic'] = $entity->getTraffic();
+    }
+
+    private function normalizeWeatherProtection(Parking $entity, array &$data): void
+    {
+        $data['weatherProtection'] = $entity->isWeatherProtection();
+    }
+
+    private function normalizeUserRating(Parking $entity, array &$data): void
+    {
+        $data['userRating'] = $entity->getUserRating();
+    }
+
+    private function normalizeDescription(Parking $entity, array &$data): void
+    {
+        $data['description'] = $entity->getDescription();
     }
 }

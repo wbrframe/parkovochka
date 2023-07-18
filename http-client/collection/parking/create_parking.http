@@ -8,7 +8,14 @@ Content-Type: application/json
     "coordinate": {
       "longitude": 48.633009,
       "latitude": 22.279601
-    }
+    },
+    "capacity": "value_1",
+    "security": false,
+    "light": true,
+    "traffic": "medium",
+    "weatherProtection": false,
+    "userRating": 5,
+    "description": null
 }
 
 > {%

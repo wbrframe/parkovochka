@@ -1,0 +1,7 @@
+ParkingTrafficField:
+  type: string
+  example: "large"
+  enum:
+    - "low"
+    - "medium"
+    - "large"

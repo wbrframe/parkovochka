@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace App\DataFixtures\ORM\Parking;
 
+use App\DataFixtures\ORM\FixtureHelper;
 use App\Entity\Parking\Parking;
+use App\Enum\ParkingCapacityEnum;
+use App\Enum\ParkingTrafficEnum;
 use App\Model\Geo\Coordinate;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Faker\Generator;
 
 class ParkingFixtures extends Fixture
 {
@@ -102,6 +106,13 @@ class ParkingFixtures extends Fixture
         ],
     ];
 
+    private Generator $faker;
+
+    public function __construct()
+    {
+        $this->faker = FixtureHelper::getFaker();
+    }
+
     public function load(ObjectManager $manager): void
     {
         foreach ($this->parkingItems as $item) {
@@ -111,6 +122,13 @@ class ParkingFixtures extends Fixture
             $parking->setCoordinate($coordinate);
             $parking->setAddress($item['address']);
             $parking->setGooglePlaceId($item['googlePlaceId']);
+            $parking->setCapacity($this->faker->randomElement(ParkingCapacityEnum::class));
+            $parking->setSecurity($this->faker->boolean());
+            $parking->setLight($this->faker->boolean());
+            $parking->setTraffic($this->faker->randomElement(ParkingTrafficEnum::class));
+            $parking->setWeatherProtection($this->faker->boolean());
+            $parking->setUserRating($this->faker->numberBetween(0, 10));
+            $parking->setDescription($this->faker->boolean() ? $this->faker->realText(100) : null);
             $manager->persist($parking);
         }
 

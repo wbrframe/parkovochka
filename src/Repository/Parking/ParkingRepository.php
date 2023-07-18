@@ -6,6 +6,7 @@ namespace App\Repository\Parking;
 
 use App\Entity\Parking\Parking;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\Persistence\ManagerRegistry;
 
 class ParkingRepository extends ServiceEntityRepository
@@ -20,6 +21,7 @@ class ParkingRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('p');
 
         return $qb
+            ->orderBy('p.createdAt', Criteria::DESC)
             ->getQuery()
             ->toIterable();
     }

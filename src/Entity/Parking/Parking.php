@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Entity\Parking;
 
+use App\Enum\ParkingCapacityEnum;
+use App\Enum\ParkingTrafficEnum;
 use App\Model\Geo\Coordinate;
 use App\Model\Geo\PlaceInterface;
 use Doctrine\ORM\Mapping as ORM;
@@ -45,6 +47,41 @@ class Parking implements UuidInterface, TimestampableInterface, PlaceInterface
     #[Assert\Valid]
     private Coordinate $coordinate;
 
+    #[ORM\Column(enumType: ParkingCapacityEnum::class)]
+    #[Assert\NotNull]
+    private ParkingCapacityEnum $capacity;
+
+    #[ORM\Column(type: 'boolean')]
+    #[Assert\NotNull]
+    private bool $security;
+
+    #[ORM\Column(type: 'boolean')]
+    #[Assert\NotNull]
+    private bool $light;
+
+    #[ORM\Column(enumType: ParkingTrafficEnum::class)]
+    #[Assert\NotNull]
+    private ParkingTrafficEnum $traffic;
+
+    #[ORM\Column(type: 'boolean')]
+    #[Assert\NotNull]
+    private bool $weatherProtection;
+
+    #[ORM\Column(type: 'integer')]
+    #[Assert\Sequentially(
+        constraints: [
+            new Assert\NotNull(),
+            new Assert\Range(min: 0, max: 10),
+        ]
+    )]
+    private int $userRating;
+
+    #[ORM\Column(type: 'string', length: 500, nullable: true)]
+    #[Assert\Sequentially([
+        new Assert\Length(min: 1, max: 500),
+    ])]
+    private ?string $description = null;
+
     public function __construct()
     {
         $this->id = new UuidV4();
@@ -79,5 +116,75 @@ class Parking implements UuidInterface, TimestampableInterface, PlaceInterface
     public function setCoordinate(Coordinate $coordinate): void
     {
         $this->coordinate = $coordinate;
+    }
+
+    public function getCapacity(): ParkingCapacityEnum
+    {
+        return $this->capacity;
+    }
+
+    public function setCapacity(ParkingCapacityEnum $capacity): void
+    {
+        $this->capacity = $capacity;
+    }
+
+    public function isSecurity(): bool
+    {
+        return $this->security;
+    }
+
+    public function setSecurity(bool $security): void
+    {
+        $this->security = $security;
+    }
+
+    public function isLight(): bool
+    {
+        return $this->light;
+    }
+
+    public function setLight(bool $light): void
+    {
+        $this->light = $light;
+    }
+
+    public function getTraffic(): ParkingTrafficEnum
+    {
+        return $this->traffic;
+    }
+
+    public function setTraffic(ParkingTrafficEnum $traffic): void
+    {
+        $this->traffic = $traffic;
+    }
+
+    public function isWeatherProtection(): bool
+    {
+        return $this->weatherProtection;
+    }
+
+    public function setWeatherProtection(bool $weatherProtection): void
+    {
+        $this->weatherProtection = $weatherProtection;
+    }
+
+    public function getUserRating(): int
+    {
+        return $this->userRating;
+    }
+
+    public function setUserRating(int $userRating): void
+    {
+        $this->userRating = $userRating;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): void
+    {
+        $this->description = $description;
     }
 }

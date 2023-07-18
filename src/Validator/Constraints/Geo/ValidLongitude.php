@@ -12,9 +12,6 @@ class ValidLongitude extends Range
     public const MAX_LONGITUDE = 180;
     public const MIN_LONGITUDE = -180;
 
-    /**
-     * {@inheritdoc}
-     */
     public function __construct(array $options = null)
     {
         $this->max = self::MAX_LONGITUDE;

@@ -17,11 +17,42 @@
         },
         "coordinate": {
             "$ref": "./../definitions.json#/definitions/coordinate"
+        },
+        "capacity": {
+            "$ref": "./../definitions.json#/definitions/parkingCapacity"
+        },
+        "security": {
+            "type": "boolean"
+        },
+        "light": {
+            "type": "boolean"
+        },
+        "traffic": {
+            "$ref": "./../definitions.json#/definitions/parkingTraffic"
+        },
+        "weatherProtection": {
+            "type": "boolean"
+        },
+        "userRating": {
+            "type": "integer",
+            "minNumber": 0,
+            "maxNumber": 10
+        },
+        "description": {
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 500
         }
     },
     "required": [
         "address",
         "googlePlaceId",
-        "coordinate"
+        "coordinate",
+        "capacity",
+        "security",
+        "light",
+        "traffic",
+        "weatherProtection",
+        "userRating"
     ]
 }
