@@ -6,8 +6,8 @@ namespace App\DataFixtures\ORM\Parking;
 
 use App\DataFixtures\ORM\FixtureHelper;
 use App\Entity\Parking\Parking;
-use App\Enum\ParkingCapacityEnum;
-use App\Enum\ParkingTrafficEnum;
+use App\Enum\CapacityEnum;
+use App\Enum\TrafficEnum;
 use App\Model\Geo\Coordinate;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -122,10 +122,10 @@ class ParkingFixtures extends Fixture
             $parking->setCoordinate($coordinate);
             $parking->setAddress($item['address']);
             $parking->setGooglePlaceId($item['googlePlaceId']);
-            $parking->setCapacity($this->faker->randomElement(ParkingCapacityEnum::class));
+            $parking->setCapacity($this->faker->randomElement(CapacityEnum::class));
             $parking->setSecurity($this->faker->boolean());
             $parking->setLight($this->faker->boolean());
-            $parking->setTraffic($this->faker->randomElement(ParkingTrafficEnum::class));
+            $parking->setTraffic($this->faker->randomElement(TrafficEnum::class));
             $parking->setWeatherProtection($this->faker->boolean());
             $parking->setUserRating($this->faker->numberBetween(0, 10));
             $parking->setDescription($this->faker->boolean() ? $this->faker->realText(100) : null);

@@ -6,8 +6,8 @@ namespace App\Service\Entity\Parking;
 
 use App\DTO\Parking\NewParkingDto;
 use App\Entity\Parking\Parking;
-use App\Enum\ParkingCapacityEnum;
-use App\Enum\ParkingTrafficEnum;
+use App\Enum\CapacityEnum;
+use App\Enum\TrafficEnum;
 use App\Service\Entity\Geo\CoordinateManager;
 
 readonly class ParkingManager
@@ -24,10 +24,10 @@ readonly class ParkingManager
         $entity->setCoordinate($coordinate);
         $entity->setAddress($dto->getAddress());
         $entity->setGooglePlaceId($dto->getGooglePlaceId());
-        $entity->setCapacity(ParkingCapacityEnum::from($dto->getCapacity()));
+        $entity->setCapacity(CapacityEnum::from($dto->getCapacity()));
         $entity->setSecurity($dto->isSecurity());
         $entity->setLight($dto->isLight());
-        $entity->setTraffic(ParkingTrafficEnum::from($dto->getTraffic()));
+        $entity->setTraffic(TrafficEnum::from($dto->getTraffic()));
         $entity->setWeatherProtection($dto->isWeatherProtection());
         $entity->setUserRating($dto->getUserRating());
         $entity->setDescription($dto->getDescription());

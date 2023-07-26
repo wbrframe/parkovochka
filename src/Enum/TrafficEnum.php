@@ -2,7 +2,7 @@
 
 namespace App\Enum;
 
-enum ParkingTrafficEnum: string
+enum TrafficEnum: string
 {
     case LOW = 'low';
     case MEDIUM = 'medium';
