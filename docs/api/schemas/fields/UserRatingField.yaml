@@ -1,4 +1,4 @@
-ParkingUserRatingField:
+UserRatingField:
   type: integer
   minimum: 0
   maximum: 10

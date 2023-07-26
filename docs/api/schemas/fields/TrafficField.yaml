@@ -1,4 +1,4 @@
-ParkingTrafficField:
+TrafficField:
   type: string
   example: "large"
   enum:

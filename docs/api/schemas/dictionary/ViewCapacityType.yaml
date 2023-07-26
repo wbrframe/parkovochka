@@ -1,0 +1,11 @@
+ViewCapacityType:
+  required:
+    - name
+    - value
+  properties:
+    name:
+      $ref: '#/components/schemas/CapacityField'
+    value:
+      type: string
+      description: 'Translation of the value depending on the Accept-Language header'
+      example: '10>'

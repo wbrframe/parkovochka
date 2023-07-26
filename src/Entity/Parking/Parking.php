@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Entity\Parking;
 
-use App\Enum\ParkingCapacityEnum;
-use App\Enum\ParkingTrafficEnum;
+use App\Enum\CapacityEnum;
+use App\Enum\TrafficEnum;
 use App\Model\Geo\Coordinate;
 use App\Model\Geo\PlaceInterface;
 use Doctrine\ORM\Mapping as ORM;
@@ -47,9 +47,9 @@ class Parking implements UuidInterface, TimestampableInterface, PlaceInterface
     #[Assert\Valid]
     private Coordinate $coordinate;
 
-    #[ORM\Column(enumType: ParkingCapacityEnum::class)]
+    #[ORM\Column(enumType: CapacityEnum::class)]
     #[Assert\NotNull]
-    private ParkingCapacityEnum $capacity;
+    private CapacityEnum $capacity;
 
     #[ORM\Column(type: 'boolean')]
     #[Assert\NotNull]
@@ -59,9 +59,9 @@ class Parking implements UuidInterface, TimestampableInterface, PlaceInterface
     #[Assert\NotNull]
     private bool $light;
 
-    #[ORM\Column(enumType: ParkingTrafficEnum::class)]
+    #[ORM\Column(enumType: TrafficEnum::class)]
     #[Assert\NotNull]
-    private ParkingTrafficEnum $traffic;
+    private TrafficEnum $traffic;
 
     #[ORM\Column(type: 'boolean')]
     #[Assert\NotNull]
@@ -118,12 +118,12 @@ class Parking implements UuidInterface, TimestampableInterface, PlaceInterface
         $this->coordinate = $coordinate;
     }
 
-    public function getCapacity(): ParkingCapacityEnum
+    public function getCapacity(): CapacityEnum
     {
         return $this->capacity;
     }
 
-    public function setCapacity(ParkingCapacityEnum $capacity): void
+    public function setCapacity(CapacityEnum $capacity): void
     {
         $this->capacity = $capacity;
     }
@@ -148,12 +148,12 @@ class Parking implements UuidInterface, TimestampableInterface, PlaceInterface
         $this->light = $light;
     }
 
-    public function getTraffic(): ParkingTrafficEnum
+    public function getTraffic(): TrafficEnum
     {
         return $this->traffic;
     }
 
-    public function setTraffic(ParkingTrafficEnum $traffic): void
+    public function setTraffic(TrafficEnum $traffic): void
     {
         $this->traffic = $traffic;
     }

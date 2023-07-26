@@ -1,4 +1,4 @@
-ParkingCapacityField:
+CapacityField:
   type: string
   example: "value_1"
   enum:

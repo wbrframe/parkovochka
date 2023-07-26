@@ -23,7 +23,7 @@ CreateParking:
     coordinate:
       $ref: '#/components/schemas/CoordinateField'
     capacity:
-      $ref: '#/components/schemas/ParkingCapacityField'
+      $ref: '#/components/schemas/CapacityField'
     security:
       type: boolean
       example: false
@@ -31,12 +31,12 @@ CreateParking:
       type: boolean
       example: true
     traffic:
-      $ref: '#/components/schemas/ParkingTrafficField'
+      $ref: '#/components/schemas/TrafficField'
     weatherProtection:
       type: boolean
       example: false
     userRating:
-      $ref: '#/components/schemas/ParkingUserRatingField'
+      $ref: '#/components/schemas/UserRatingField'
     description:
       type: string
       nullable: true

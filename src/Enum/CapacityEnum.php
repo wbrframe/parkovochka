@@ -2,7 +2,7 @@
 
 namespace App\Enum;
 
-enum ParkingCapacityEnum: string
+enum CapacityEnum: string
 {
     case VALUE_1 = 'value_1';
     case VALUE_6 = 'value_6';

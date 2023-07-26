@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\DTO\Parking;
 
 use App\DTO\Geo\CoordinateDto;
-use App\Enum\ParkingCapacityEnum;
-use App\Enum\ParkingTrafficEnum;
+use App\Enum\CapacityEnum;
+use App\Enum\TrafficEnum;
 use App\Model\Geo\PlaceInterface;
 use StfalconStudio\ApiBundle\Attribute\JsonSchema;
 use StfalconStudio\ApiBundle\DTO\DtoInterface;
@@ -31,7 +31,7 @@ class NewParkingDto implements DtoInterface, PlaceInterface
     #[Assert\Sequentially(
         constraints: [
             new Assert\NotBlank(),
-            new Assert\Choice(callback: [ParkingCapacityEnum::class, 'values']),
+            new Assert\Choice(callback: [CapacityEnum::class, 'values']),
         ],
     )]
     private string $capacity = '';
@@ -42,7 +42,7 @@ class NewParkingDto implements DtoInterface, PlaceInterface
     #[Assert\Sequentially(
         constraints: [
             new Assert\NotBlank(),
-            new Assert\Choice(callback: [ParkingTrafficEnum::class, 'values']),
+            new Assert\Choice(callback: [TrafficEnum::class, 'values']),
         ],
     )]
     private string $traffic = '';

@@ -1,0 +1,9 @@
+GET {{api_scheme}}{{api_host}}/api/{{api_version}}/dictionaries/capacity-types
+Accept-Language: {{default_language}}
+Content-Type: application/json
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}

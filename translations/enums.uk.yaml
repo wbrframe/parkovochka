@@ -1,0 +1,12 @@
+# Capacity types
+value_1: '1-5'
+value_6: '6-10'
+value_10: '>10'
+
+# Traffic types
+low: 'низький'
+medium: 'середній'
+large: 'великий'
+
+
+
