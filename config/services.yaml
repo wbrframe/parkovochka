@@ -17,12 +17,18 @@ services:
         bind:
             $defaultLocale: '%locale%'
             $supportedLocales: '%locales%'
+            $filesystem: '@oneup_flysystem.file_fs_filesystem'
     App\:
         resource: '../src/{DependencyInjection,EventListener,Repository,Request,Serializer,Service,Traits,Util,Validator}/'
 
     App\Controller\:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
+
+    App\Service\File\UniqidLowercaseNamer:
+        public: true
+        tags:
+            - { name: namer }
 
     App\DataFixtures\ORM\:
         resource: '../src/DataFixtures/ORM/'
