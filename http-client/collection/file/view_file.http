@@ -1,0 +1,3 @@
+GET {{api_scheme}}{{api_host}}/api/{{api_version}}/files/{{file_id}}
+Accept-Language: {{default_language}}
+Authorization: Bearer {{token}}

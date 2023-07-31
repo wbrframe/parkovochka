@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ruleset name="Codding Standard"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
+
+    <arg name="basepath" value="."/>
+    <arg name="cache" value="./var/cache/.php_cs.cache"/>
+    <arg name="extensions" value="php"/>
+    <arg name="encoding" value="utf-8"/>
+    <arg name="colors"/>
+    <arg name="parallel" value="4"/>
+    <arg value="p"/>
+    <arg value="s"/>
+
+    <file>./src/</file>
+    <file>./tests/</file>
+
+    <rule ref="PSR12"/>
+
+    <!-- By default inherit all Symfony code style rules, -->
+    <rule ref="./vendor/escapestudios/symfony2-coding-standard/Symfony">
+        <!-- except required license block in the top of each file, because it is not necessary for commercial projects -->
+        <exclude name="Symfony.Commenting.License" />
+        <!-- also allow to add number to the variable names, e.g. $base64 -->
+        <exclude name="Zend.NamingConventions.ValidVariableName.MemberVarContainsNumbers" />
+        <exclude name="Symfony.Commenting.ClassComment.Missing" />
+        <exclude name="Symfony.Commenting.FunctionComment.Missing" />
+        <exclude name="PSR12.Operators.OperatorSpacing" />
+        <!-- https://github.com/squizlabs/PHP_CodeSniffer/issues/3727 -->
+        <exclude name="PSR1.Files.SideEffects.FoundWithSymbols" />
+    </rule>
+
+    <!-- Don't hide tokenizer exceptions -->
+    <rule ref="Internal.Tokenizer.Exception">
+        <type>error</type>
+    </rule>
+
+    <!-- Don't allow to use underscore for methods and properties, throw it as code style error -->
+    <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+        <type>error</type>
+    </rule>
+    <rule ref="PSR2.Classes.PropertyDeclaration.Underscore">
+        <type>error</type>
+    </rule>
+
+    <rule ref="Generic">
+        <exclude name="Generic"/>
+    </rule>
+</ruleset>

@@ -14,9 +14,11 @@ services:
     _defaults:
         autowire: true
         autoconfigure: true
-
+        bind:
+            $defaultLocale: '%locale%'
+            $supportedLocales: '%locales%'
     App\:
-        resource: '../src/{EventListener,Repository,Request,Serializer,Service,Traits,Util,Validator}/'
+        resource: '../src/{DependencyInjection,EventListener,Repository,Request,Serializer,Service,Traits,Util,Validator}/'
 
     App\Controller\:
         resource: '../src/Controller/'

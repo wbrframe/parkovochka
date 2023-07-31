@@ -10,6 +10,8 @@
 /public/bundles/
 /var/
 /vendor/
+/uploads/
+!/uploads/.gitkeep
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
@@ -24,11 +26,9 @@
 
 ###> squizlabs/php_codesniffer ###
 /.phpcs-cache
-/phpcs.xml
 ###< squizlabs/php_codesniffer ###
 
 ###> friendsofphp/php-cs-fixer ###
-/.php-cs-fixer.php
 /.php-cs-fixer.cache
 ###< friendsofphp/php-cs-fixer ###
 

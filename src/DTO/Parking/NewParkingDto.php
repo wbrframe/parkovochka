@@ -98,7 +98,7 @@ class NewParkingDto implements DtoInterface, PlaceInterface
 
     public function setCapacity(string $capacity): void
     {
-        $this->capacity = \trim($capacity);
+        $this->capacity = trim($capacity);
     }
 
     public function isSecurity(): bool
@@ -128,7 +128,7 @@ class NewParkingDto implements DtoInterface, PlaceInterface
 
     public function setTraffic(string $traffic): void
     {
-        $this->traffic = \trim($traffic);
+        $this->traffic = trim($traffic);
     }
 
     public function isWeatherProtection(): bool
@@ -158,8 +158,8 @@ class NewParkingDto implements DtoInterface, PlaceInterface
 
     public function setDescription(?string $description): void
     {
-        if (is_string($description)) {
-            $this->description = \trim($description);
+        if (\is_string($description)) {
+            $this->description = trim($description);
         } else {
             $this->description = $description;
         }

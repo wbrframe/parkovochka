@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace App\Entity\Parking;
 
+use App\Entity\File\File;
+use App\Entity\File\Packaging\PackagingPhotoFile;
+use App\Entity\File\Parking\ParkingPhotoFile;
 use App\Enum\CapacityEnum;
 use App\Enum\TrafficEnum;
 use App\Model\Geo\Coordinate;
 use App\Model\Geo\PlaceInterface;
 use Doctrine\ORM\Mapping as ORM;
+use StfalconStudio\ApiBundle\Model\Aggregate\AggregateRootInterface;
 use StfalconStudio\ApiBundle\Model\Timestampable\TimestampableInterface;
 use StfalconStudio\ApiBundle\Model\Timestampable\TimestampableTrait;
 use StfalconStudio\ApiBundle\Model\UUID\UuidInterface;
@@ -21,7 +25,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Table(name: 'parkings')]
 #[ORM\UniqueConstraint(columns: ['google_place_id'])]
 #[UniqueEntity(fields: 'googlePlaceId', ignoreNull: true)]
-class Parking implements UuidInterface, TimestampableInterface, PlaceInterface
+class Parking implements UuidInterface, TimestampableInterface, PlaceInterface, AggregateRootInterface
 {
     use TimestampableTrait;
     use UuidTrait;
@@ -81,6 +85,10 @@ class Parking implements UuidInterface, TimestampableInterface, PlaceInterface
         new Assert\Length(min: 1, max: 500),
     ])]
     private ?string $description = null;
+
+    #[ORM\OneToOne(mappedBy: 'parking', targetEntity: ParkingPhotoFile::class, cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?ParkingPhotoFile $photo = null;
 
     public function __construct()
     {
@@ -186,5 +194,26 @@ class Parking implements UuidInterface, TimestampableInterface, PlaceInterface
     public function setDescription(?string $description): void
     {
         $this->description = $description;
+    }
+
+    public function getPhoto(): ?File
+    {
+        return $this->photo instanceof ParkingPhotoFile ? $this->photo->getFile() : null;
+    }
+
+    public function setPhoto(?File $photo): self
+    {
+        if ($photo instanceof File) {
+            if (null === $this->photo) {
+                $this->photo = new ParkingPhotoFile($photo, $this);
+            }
+
+            $this->photo->setFile($photo);
+            $this->photo->setParking($this);
+        } else {
+            $this->photo = null;
+        }
+
+        return $this;
     }
 }

@@ -1,0 +1,16 @@
+vich_uploader:
+    db_driver: orm
+    storage: flysystem
+    metadata:
+        type: attribute
+    mappings:
+        files:
+            uri_prefix: "%kernel.project_dir%/uploads"
+            namer: App\Service\File\UniqidLowercaseNamer
+            upload_destination: oneup_flysystem.file_fs_filesystem
+            directory_namer:
+                service: vich_uploader.directory_namer_subdir
+                options: { chars_per_dir: 4, dirs: 2 }
+            inject_on_load: true
+            delete_on_update: true
+            delete_on_remove: true
