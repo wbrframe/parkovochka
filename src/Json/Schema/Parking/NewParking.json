@@ -42,6 +42,9 @@
             "type": ["string", "null"],
             "minLength": 1,
             "maxLength": 500
+        },
+        "photoId": {
+            "$ref": "./../definitions.json#/definitions/id"
         }
     },
     "required": [

@@ -15,18 +15,14 @@ class FileHelper
 {
     use RouterTrait;
 
-    private readonly FilesystemOperator $filesystem;
-
     public const MIME_TYPES_SUPPORT = [
         'image/png',
         'image/jpeg',
-        'image/gif',
-        'image/webp',
+        'image/gif'
     ];
 
-    public function __construct(FilesystemOperator $filesystem)
+    public function __construct(private FilesystemOperator $filesystem, private string $staticHost)
     {
-        $this->filesystem = $filesystem;
     }
 
     public function buildFileUrl(File $file): ?string
@@ -46,6 +42,6 @@ class FileHelper
 
     private function generateObjectUrlForCDN(UploadedFile $file): string
     {
-        return sprintf('%s/%s', 'http://test', $file->getPathname());
+        return sprintf('%s/%s', $this->staticHost, $file->getPathname());
     }
 }

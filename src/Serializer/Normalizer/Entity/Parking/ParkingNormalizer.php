@@ -4,14 +4,20 @@ declare(strict_types=1);
 
 namespace App\Serializer\Normalizer\Entity\Parking;
 
+use App\Entity\File\File;
+use App\Entity\File\Parking\ParkingPhotoFile;
 use App\Entity\Parking\Parking;
 use App\Serializer\Groups\SerializationGroups;
 use App\Serializer\Normalizer\AbstractBaseNormalizer;
+use App\Serializer\Normalizer\FileNormalizer;
 use App\Serializer\Normalizer\Model\CoordinateNormalizer;
 
 class ParkingNormalizer extends AbstractBaseNormalizer
 {
-    public function __construct(private readonly CoordinateNormalizer $coordinateNormalizer)
+    public function __construct(
+        private readonly CoordinateNormalizer $coordinateNormalizer,
+        private readonly FileNormalizer $fileNormalizer
+    )
     {
     }
 
@@ -42,6 +48,7 @@ class ParkingNormalizer extends AbstractBaseNormalizer
                 $this->normalizeWeatherProtection($object, $data);
                 $this->normalizeUserRating($object, $data);
                 $this->normalizeDescription($object, $data);
+                $this->normalizePhoto($object, $data);
                 break;
         }
 
@@ -101,5 +108,12 @@ class ParkingNormalizer extends AbstractBaseNormalizer
     private function normalizeDescription(Parking $entity, array &$data): void
     {
         $data['description'] = $entity->getDescription();
+    }
+
+    private function normalizePhoto(Parking $entity, array &$data): void
+    {
+        $relatedFile = $entity->getPhoto();
+
+        $data['photo'] = $relatedFile instanceof File ? $this->fileNormalizer->normalize($relatedFile) : null;
     }
 }

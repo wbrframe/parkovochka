@@ -36,7 +36,7 @@ final class UploadNewFileAction
                 new NotNull(['message' => 'file_is_missed']),
                 new Image([
                     'mimeTypes' => FileHelper::MIME_TYPES_SUPPORT,
-                    'maxSize' => '3M',
+                    'maxSize' => '5M',
                 ]),
             ]
         );

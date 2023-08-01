@@ -61,6 +61,14 @@ class NewParkingDto implements DtoInterface, PlaceInterface
     ])]
     private ?string $description = null;
 
+    #[Assert\Sequentially(
+        constraints: [
+            new Assert\NotBlank(allowNull: true),
+            new Assert\Uuid()
+        ]
+    )]
+    private ?string $photoId = null;
+
     public function getAddress(): string
     {
         return $this->address;
@@ -162,6 +170,20 @@ class NewParkingDto implements DtoInterface, PlaceInterface
             $this->description = trim($description);
         } else {
             $this->description = $description;
+        }
+    }
+
+    public function getPhotoId(): ?string
+    {
+        return $this->photoId;
+    }
+
+    public function setPhotoId(?string $photoId): void
+    {
+        if (\is_string($photoId)) {
+            $this->photoId = trim($photoId);
+        } else {
+            $this->photoId = $photoId;
         }
     }
 }

@@ -9,6 +9,7 @@ parameters:
     admin_scheme: '%env(APP_ADMIN_SCHEME)%'
     landing_host: '%env(APP_LANDING_HOST)%'
     landing_scheme: '%env(APP_LANDING_SCHEME)%'
+    static_host: '%env(APP_STATIC_HOST)%'
 
 services:
     _defaults:
@@ -18,6 +19,7 @@ services:
             $defaultLocale: '%locale%'
             $supportedLocales: '%locales%'
             $filesystem: '@oneup_flysystem.file_fs_filesystem'
+            $staticHost: '%static_host%'
     App\:
         resource: '../src/{DependencyInjection,EventListener,Repository,Request,Serializer,Service,Traits,Util,Validator}/'
 

@@ -12,7 +12,10 @@ use App\Service\Entity\Geo\CoordinateManager;
 
 readonly class ParkingManager
 {
-    public function __construct(private CoordinateManager $coordinateManager)
+    public function __construct(
+        private CoordinateManager $coordinateManager,
+        private ParkingFileManager $parkingFileManager
+    )
     {
     }
 
@@ -31,6 +34,8 @@ readonly class ParkingManager
         $entity->setWeatherProtection($dto->isWeatherProtection());
         $entity->setUserRating($dto->getUserRating());
         $entity->setDescription($dto->getDescription());
+
+        $this->parkingFileManager->updateEntityFromDtoForPhoto($entity, $dto);
 
         return $entity;
     }
