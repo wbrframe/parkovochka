@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\DataFixtures\ORM\Parking;
 
 use App\DataFixtures\ORM\FixtureHelper;
+use App\Entity\File\File;
 use App\Entity\Parking\Parking;
 use App\Enum\CapacityEnum;
 use App\Enum\TrafficEnum;
@@ -12,9 +13,12 @@ use App\Model\Geo\Coordinate;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Generator;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ParkingFixtures extends Fixture
 {
+    private const PATH_TO_PROVIDER_LOGOS = __DIR__.'/../Resources/parking/';
+
     private array $parkingItems = [
         [
             'coordinate' => [
@@ -115,7 +119,7 @@ class ParkingFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        foreach ($this->parkingItems as $item) {
+        foreach ($this->parkingItems as $index => $item) {
             $coordinate = new Coordinate($item['coordinate']['longitude'], $item['coordinate']['latitude']);
 
             $parking = new Parking();
@@ -129,6 +133,12 @@ class ParkingFixtures extends Fixture
             $parking->setWeatherProtection($this->faker->boolean());
             $parking->setUserRating($this->faker->numberBetween(0, 10));
             $parking->setDescription($this->faker->boolean() ? $this->faker->realText(100) : null);
+
+            if (0 === $index) {
+                $photoFile = new UploadedFile(self::PATH_TO_PROVIDER_LOGOS.'photo.png', 'photo.png', null, null, true);
+                $parking->setPhoto((new File())->setUploadableFile($photoFile));
+            }
+
             $manager->persist($parking);
         }
 
