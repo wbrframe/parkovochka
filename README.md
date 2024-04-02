@@ -1,4 +1,6 @@
 # Parkovochka
 
-Finding the nearest parking for your bike.
+Backend for moblie app for finding the nearest parking for your bike.
+Project currently under development.
+
 
