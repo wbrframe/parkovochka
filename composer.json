@@ -1,8 +1,13 @@
 {
     "name": "wbrframe/parkovochka",
+    "homepage": "https://parkovochka.space",
     "type": "project",
-    "license": "proprietary",
     "description": "Finding the nearest parking for your bike",
+    "authors": [{
+        "name": "Vaskevich Yevhenii",
+        "email": "wbrframe@gmail.com"
+    }],
+    "license": "MIT",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
