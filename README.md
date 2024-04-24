@@ -3,7 +3,9 @@
 </p>
 
 ---
-Backend for moblie app for finding the nearest parking for your bike.
+REST API for moblie app for finding the nearest parking for your bike.
+
+In collaboration with flutter developer: [Valerii Kostynskyi](https://github.com/valerii-kostynskyi)
 
 Project currently under development. 🚀 [parkovochka.space](https://parkovochka.space)
 
